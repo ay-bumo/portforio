@@ -1,0 +1,8 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header, main, footer {
+    padding: 20px;
+}
