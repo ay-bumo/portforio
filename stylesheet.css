@@ -1,8 +1,96 @@
-body {
+/* 基本リセット */
+* {
     margin: 0;
-    font-family: sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header, main, footer {
-    padding: 20px;
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    background-color: #f7f9fa; /* 全体の背景色（イラストが映える淡い色） */
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   背景のスタイル（パララックス用）
+========================================== */
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* コンテンツの後ろに配置 */
+    overflow: hidden;
+    pointer-events: none; /* マウスイベントを貫通させてコンテンツの邪魔をしない */
+}
+
+/* 共通の球のスタイル */
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* これで境界線を思い切りボカします */
+    opacity: 0.5;       /* 透明度を下げて主張を控えめに */
+    will-change: transform; /* アニメーションの軽量化 */
+}
+
+/* 各球の色と初期位置（絵の世界観に合わせて変えてみてください） */
+.circle1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #ffdee9 0%, #b5fffc 100%);
+    top: -10%;
+    left: -10%;
+}
+
+.circle2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #e0c3fc 0%, #8ec5fc 100%);
+    bottom: -10%;
+    right: -10%;
+}
+
+.circle3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #f0faf7 0%, #d4e0e5 100%);
+    top: 40%;
+    left: 50%;
+}
+
+/* ==========================================
+   コンテンツのスタイル
+========================================== */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+}
+
+p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a.active {
+    border-bottom: 2px solid #333;
 }
